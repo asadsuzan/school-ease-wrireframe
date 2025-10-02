@@ -1,18 +1,20 @@
-"use client";
+"use client"
 
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import sidebarItems from '@/lib/SidebarItems';
-import Sidebar from './Sidebar';
-import Header from './Header';
+import Sidebar from '@/components/layout/Sidebar';
+import Header from '@/components/layout/Header';
+import useWindowSize from '@/hooks/useWindowSize';
 
-
-export default function SchoolEaseSystemLayout({
+const DashboardLayout = ({
     children,
 }: {
     children: React.ReactNode;
-}) {
-    const [sidebarOpen, setSidebarOpen] = useState(true);
+}) => {
+     const windowSize = useWindowSize();
+    const [sidebarOpen, setSidebarOpen] = useState(windowSize?.width > 768);
+   
     const [expandedItems, setExpandedItems] = useState<string[]>([]);
     const [isFullscreen, setIsFullscreen] = useState(false);
     const router = useRouter();
@@ -37,7 +39,9 @@ export default function SchoolEaseSystemLayout({
 
     const handleNavigation = (path: string) => {
         router.push(path);
-        // setSidebarOpen(false); // Close mobile sidebar on navigation
+        if (windowSize?.width <= 768) {
+            setSidebarOpen(false); // Close mobile sidebar on navigation
+        }
     };
 
 
@@ -57,11 +61,10 @@ export default function SchoolEaseSystemLayout({
         document.addEventListener("fullscreenchange", handleChange);
         return () => document.removeEventListener("fullscreenchange", handleChange);
     }, []);
-
-
-    return (
-        <div className="min-h-screen bg-gray-50">
-            {/* Header */}
+  return (
+    <div className='dashboard'>
+  
+      {/* Header */}
            <Header  {...{setSidebarOpen, isFullscreen, toggleFullscreen }}/>
 
             <div className="flex pt-16">
@@ -80,6 +83,8 @@ export default function SchoolEaseSystemLayout({
                     onClick={() => setSidebarOpen(false)}
                 />
             )}
-        </div>
-    );
+       </div>
+  )
 }
+
+export default DashboardLayout;

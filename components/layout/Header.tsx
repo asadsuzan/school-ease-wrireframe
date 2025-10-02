@@ -5,21 +5,15 @@ import { Button } from "../ui/button";
 import {
   Bell,
   LogOut,
-  LucideMessageCircleReply,
-  LucideMessagesSquare,
   LucideUniversity,
   Maximize2,
   Menu,
-  MessageCircle,
-  MessageCircleHeartIcon,
-  MessageCirclePlus,
-  MessageSquareDiffIcon,
   MessageSquareIcon,
   Minimize2,
   Settings,
-  ShoppingBag,
 } from "lucide-react";
 import Link from "next/link";
+import useAuth from '@/hooks/useAuth';
 
 export interface HeaderProps {
   setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -140,7 +134,7 @@ const Header = ({ setSidebarOpen, isFullscreen, toggleFullscreen }: HeaderProps)
         <button
           onClick={() => {
             setProfileDropdownOpen(false);
-            // logout function here
+            useAuth().logOut()
           }}
           className="w-full text-left flex items-center px-4 py-2 text-sm hover:bg-pink-50 hover:text-red-600"
         >
