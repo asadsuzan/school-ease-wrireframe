@@ -1,90 +1,107 @@
-**app/**
-├─ **(public)/** # Public-facing routes
-│ ├─ layout.tsx # Public layout (e.g., landing, docs, pricing)
-│ ├─ page.tsx # Landing page
-│ ├─ **about/**
-│ │ └─ page.tsx
-│ └─ **pricing/**
-│ └─ page.tsx
-│
-├─ **(auth)/** # Authentication routes
-│ ├─ layout.tsx # Auth layout (login/register/reset password)
-│ ├─ **login/**
-│ │ └─ page.tsx
-│ ├─ **register/**
-│ │ └─ page.tsx
-│ └─ **reset-password/**
-│ └─ page.tsx
-│
-├─ **(dashboard)/** # Private (authenticated) area
-│ ├─ layout.tsx # Dashboard layout (sidebar, header)
-│ ├─ page.tsx # Dashboard home
-│ ├─ **settings/**
-│ │ └─ page.tsx
-│ └─ **users/**
-│ └─ page.tsx
-│
-├─ **api/** # Next.js API routes (serverless)
-│ ├─ **auth/**
-│ │ └─ route.ts # e.g. login/logout API
-│ └─ **users/**
-│ └─ route.ts
-│
-├─ layout.tsx # Root layout (global providers, html, body)
-└─ page.tsx # Default home page
-
----
-
-**components/** # Reusable UI components
-├─ **ui/** # Generic components (buttons, modals, inputs)
-├─ **layout/** # Layout parts (navbar, sidebar, footer)
-└─ **forms/** # Form components (login form, register form)
-
----
-
-**lib/** # Core logic (non-UI utilities)
-├─ auth.ts # Authentication helpers
-├─ api.ts # API client (axios/fetch wrapper)
-└─ validation.ts # Zod/yup validation schemas
-
----
-
-**hooks/** # Custom React hooks
-├─ useAuth.ts # Hook for user auth state
-└─ useMediaQuery.ts # Hook for responsiveness
-
----
-
-**context/** # React context providers
-└─ AuthContext.tsx
-
----
-
-**types/** # TypeScript types/interfaces
-├─ user.ts
-└─ api.ts
-
----
-
-**store/** # State management (Zustand/Redux/Recoil)
-└─ userStore.ts
-
----
-
-**styles/** # Global styles, Tailwind configs, themes
-├─ globals.css
-└─ variables.css
-
----
-
-**public/** # Static assets
-├─ **images/**
-├─ **icons/**
-└─ **fonts/**
-
----
-
-**tests/** # Unit/integration tests
-├─ **components/**
-├─ **pages/**
-└─ **utils/**
+├── .eslintrc.json
+├── .gitignore
+├── .prettierrc
+├── README.md
+├── app
+├── (auth)
+│ ├── layout.tsx
+│ ├── login
+│ │ └── page.tsx
+│ └── register
+│ │ └── page.tsx
+├── (dashboard)
+│ ├── attendance
+│ │ └── students
+│ │ │ └── page.tsx
+│ ├── classes
+│ │ ├── add
+│ │ │ └── page.tsx
+│ │ └── all
+│ │ │ └── page.tsx
+│ ├── layout.tsx
+│ ├── page.tsx
+│ └── settings
+│ │ ├── school-info
+│ │ └── page.tsx
+│ │ ├── system
+│ │ └── page.tsx
+│ │ └── users
+│ │ └── page.tsx
+├── globals.css
+└── layout.tsx
+├── bun.lock
+├── components.json
+├── components
+├── layout
+│ ├── Header.tsx
+│ └── Sidebar.tsx
+└── ui
+│ ├── accordion.tsx
+│ ├── alert-dialog.tsx
+│ ├── alert.tsx
+│ ├── aspect-ratio.tsx
+│ ├── avatar.tsx
+│ ├── badge.tsx
+│ ├── breadcrumb.tsx
+│ ├── button.tsx
+│ ├── calendar.tsx
+│ ├── card.tsx
+│ ├── carousel.tsx
+│ ├── chart.tsx
+│ ├── checkbox.tsx
+│ ├── collapsible.tsx
+│ ├── command.tsx
+│ ├── context-menu.tsx
+│ ├── dialog.tsx
+│ ├── drawer.tsx
+│ ├── dropdown-menu.tsx
+│ ├── form.tsx
+│ ├── hover-card.tsx
+│ ├── input-otp.tsx
+│ ├── input.tsx
+│ ├── label.tsx
+│ ├── menubar.tsx
+│ ├── navigation-menu.tsx
+│ ├── pagination.tsx
+│ ├── popover.tsx
+│ ├── progress.tsx
+│ ├── radio-group.tsx
+│ ├── resizable.tsx
+│ ├── scroll-area.tsx
+│ ├── select.tsx
+│ ├── separator.tsx
+│ ├── sheet.tsx
+│ ├── skeleton.tsx
+│ ├── slider.tsx
+│ ├── sonner.tsx
+│ ├── switch.tsx
+│ ├── table.tsx
+│ ├── tabs.tsx
+│ ├── textarea.tsx
+│ ├── toast.tsx
+│ ├── toaster.tsx
+│ ├── toggle-group.tsx
+│ ├── toggle.tsx
+│ └── tooltip.tsx
+├── hooks
+├── use-toast.ts
+├── useAuth.ts
+└── useWindowSize.ts
+├── lib
+├── SidebarItems.ts
+└── utils.ts
+├── next.config.js
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public
+├── android-chrome-192x192.png
+├── android-chrome-512x512.png
+├── apple-touch-icon.png
+├── favicon-16x16.png
+├── favicon-32x32.png
+├── favicon.ico
+├── logo.png
+└── site.webmanifest
+├── tailwind.config.ts
+└── tsconfig.json
